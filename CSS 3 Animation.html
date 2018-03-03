@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>CSS 3 Animation</title>
+		<link rel="stylesheet" type="text/css" href="css3animation.css"/>
+	</head>
+
+	<body>
+		<div class="linear">
+			<p>yes</p>
+			<p>no</p>
+			<p>no</p>
+			<p>no</p>
+			<p>no</p>
+			<br/>
+			<p>no</p>
+			<p>no</p>
+			<p>no</p>
+			<p>no</p>
+			<p>no</p>
+			<br/>
+			<p>no</p>
+			<p>no</p>
+			<p>no</p>
+			<p>no</p>
+			<p>no</p>
+		</div>
+		
+		<div class="d1"><p>EaseIn</p></div>
+		<div class="d2"><p>Linear</p></div>
+		<div class="d3"><p>EaseOut</p></div>
+		<div class="d4"><p>EaseIO</p></div>
+		<div class="d5"><p>EaseCustom</p></div>
+		<div class="d6"><p>Step</p></div>
+		<br/>
+		
+		<div class="rotate"><p>Rotate</p></div>
+		<br/><br/>
+		
+		<div class="swing"><p>Swing</p></div>
+		<br/><br/>
+		
+		<div class="zoom"><p>Zoom</p></div>
+		<br/><br/>
+		
+		<div class="spin"><p>Spin3D</p></div>
+		<br/>
+		
+		<div class="fun"><p>FUN</p></div><br/><br/>
+		
+		<div class="transition2"><p>Transition</p></div><br/><br/>
+		
+		<div class="bitransition"><p>BiTransition</p></div>
+		
+		<script>
+			function move(){
+				var a=					document.getElementsByClassName('follow');
+				if(a.length){
+					for( var i=0; i<a.length; ++i ){
+						a[i].style.left=	x+'px';
+						a[i].style.top=		y+'px';
+					}
+				}else{
+					console.error('no tags with class name "follow" found');
+				}
+			}
+			setInterval( move, 2000 );
+			document.addEventListener('mousemove',function(e){x=e.clientX;y=e.clientY;},false);
+		</script>
+		
+	</body>
+
+</html>

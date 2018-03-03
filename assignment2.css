@@ -1,0 +1,67 @@
+body{
+    background-image:url("backgroundpattern.gif");
+	color:white;
+}
+img {
+	position: absolute;
+	left:300px;
+	top: 25px;
+}
+form {
+	padding:8px;
+	font-family:Arial;
+	min-width:30em;
+	max-width:31em;
+	background-image:url("blackpattern.gif");
+	border-radius: 0 64px 64px 0;
+	border:1px solid black;
+}
+fieldset {
+	margin:8px;
+	border:none;
+	background-color:rgba(0,0,0,0.6);
+}
+legend {
+	padding:4px;
+	background-color:rgba(0,0,0,0.8);
+}
+input {
+	padding:4px;
+	margin:4px;
+	font-family:Arial;
+	background:black;
+	color:white;
+}
+input:hover { 
+    border-top-color:yellow;
+	border-left-color:yellow;
+}
+input:focus { border-color:yellow; }
+select { 
+    color:white;
+    background:black;
+    padding:4px;
+    margin:4px;	
+}
+select:hover {
+	border-top-color:yellow;
+	border-left-color:yellow;
+}
+button:hover { border-color:red; }
+button {
+	background:black;
+	color:white;
+	padding:4px;
+	margin:4px;
+}
+.but {text-align:center;}
+optgroup{
+	color:red;
+	background-color:black;
+	font-style:italic;
+}
+option {
+	color:white;
+	background:black;
+}
+ 

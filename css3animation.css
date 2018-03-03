@@ -1,0 +1,124 @@
+body{
+	padding-left:44%;
+	padding-bottom:10%;
+}
+@keyframes kf_width{
+	0% {width:64px;}
+	100% {width:600px;}
+}
+.linear{
+	animation-name: kf_width; /*points to the keyframe animation above*/
+	animation-duration: 2s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	margin: 0px;
+}
+p {
+	background:black;
+	color:white;
+	display:inline-block;
+	margin:4px;
+	padding:4px;
+	
+}
+.d1{ animation:kf_width 2s alternate infinite ease-in; background:grey;}
+.d2{ animation:kf_width 2s alternate infinite linear; background:grey;}
+.d3{ animation:kf_width 2s alternate infinite ease-out; background:grey;}
+.d4{ animation:kf_width 2s alternate infinite ease-in-out; background:grey;}
+.d5{ animation:kf_width 2s alternate infinite cubic-bezier(1,0,0,1); background:grey;}
+.d6{ animation:kf_width 2s alternate infinite step-start; background:grey;} 
+
+@keyframes transform{
+    0%  {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}   
+}
+.rotate {
+	text-align:center;
+	width:100px;
+	animation:transform 4s infinite linear;
+	transform:rotate(0deg);
+}
+
+
+@keyframes swing{
+	0% {transform:rotate(-10deg);}
+	100% {transform:rotate(10deg);}
+}
+.swing {
+	width:100px;
+	text-align:center;
+	animation:swing 4s infinite linear;
+	transform:rotate(0deg);
+	
+}
+
+@keyframes zoom{
+	0% {transform:scale(0.8,0.8);}
+	100% {transform:scale(1.5,1.5);}
+}
+.zoom {
+	width:100px;
+	text-align:center;
+	animation:zoom 2s infinite linear;
+}
+
+@keyframes spin {
+	0% {transform:rotateY(0deg);}
+	100% {transform:rotateY(360deg);}
+}
+.spin {
+	width:100px;
+	text-align:center;
+	animation:spin 2s infinite linear;
+}
+
+@keyframes skew {
+	0% {transform:skew(0deg,0deg);}
+	100% {transform:skew(180deg,180deg);}
+}
+.fun {
+	width:100px;
+	text-align:center;
+	padding-top:50px;
+	animation:skew 3s infinite linear;
+}
+
+@keyframes transit {
+	0% {transform:scale(1,1);}
+	100% {transform:scale(2,2);}
+}
+
+.transition2 {
+	width:100px;
+	text-align:center;
+}
+.transition2:hover {
+	animation:transit 2s linear; 
+	animation-delay:0;
+	animation-duration:1s;
+}
+
+@keyframes text-shadow {
+	0% {text-shadow:0 0 white;}
+	100% {
+		text-shadow: 0 0 rgba(255,255,255,0), 
+		-45px -45px 0 red, 
+		-30px -30px 0 orange, 
+		-15px -15px 0 yellow, 
+		0 0 0 green, 
+		15px 15px 0 blue, 
+		30px 30px 0 indigo, 
+		45px 45px 0 violet;}
+}
+.bitransition {
+	width:100px;
+	text-align:center;
+	animation:text-shadow 1s infinite alternate;
+	text-shadow:0 0 white;
+}
+.bitransition:hover {
+	animation:transit 2s linear; 
+	animation-delay:0;
+	animation-duration:1s;
+}

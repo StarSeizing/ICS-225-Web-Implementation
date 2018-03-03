@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://domfu.com/app/dom12017.html -->
+<html id="html"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DOM 1</title>
+<style media="all" type="text/css">
+button , .fakebutton
+{
+	background-color: #FF0000;
+	border: 2px double #000000;
+	font-weight: bold;
+	padding: 2px;
+	margin: 8px;
+	display: inline-block;
+	font: inherit;
+}
+
+#green
+{
+	background-color:green;
+}
+</style>
+</head>
+<body>
+
+
+<button onclick="alertExperiment( this )" type="button" name="alert 1" value="Hello World!"> Alert Experiment 1 </button>
+<script type="text/javascript">
+// Internal Javascript
+
+function alertExperiment( object )
+{
+	alert( object ); //what is that "this" variable I passed to this function? lets alert it and see...
+	
+	alert( object.getAttribute("value") ); // how to read HTML attributes from a tag object.  Yes, to change them you use setAttribute().
+	
+	console.log( object ); // Use firebug (or other browser's console) to print out the object for closer inspection; also much less annoying than using alerts.
+	
+}
+
+</script>
+
+
+
+
+<div class="fakebutton" onclick="alert_experiment_2( this )" type="button" name="Alert 2" value="Hello"> Alert Experiment 2 </div>
+<script type="text/javascript">
+
+function alert_experiment_2( object )
+{
+	alert(object.getAttribute("value"));
+	console.log(object);
+}
+
+</script>
+
+
+
+
+<div class="fakebutton" onclick="reading_attributes( this )" type="button" name="Reading Attributes" value="Read Tag"> Read Tag Attribute Experiment </div>
+<script type="text/javascript">
+
+// By placing code into multiple script tags it makes it easier to experiment. typos that break code will only kill the code in 1 script tag-- the others will be immune.
+// NOTE: everything is still shared between script tags so globals will be seen and functions too.
+function reading_attributes(object)
+{
+	alert(object.getAttribute("class"));
+	console.log(object);
+}
+
+</script>
+
+
+
+
+<button type="button"  onclick="read_form( this )" name="Reading Form" value="Read Forms"> Read Form Value Experiment 1 </button>
+<script type="text/javascript">
+function read_form(object)
+{	
+	var result = document.getElementById("textOutput").innerHTML;
+	alert(result);
+	console.log(result);
+}
+
+</script>
+
+
+
+
+<button type="button" onclick="prompt1( this )" name="Prompt 1" value="prompt 1"> Prompt Experiment 1 </button>
+<script type="text/javascript">
+function prompt1(object)
+{
+	var p = prompt("Type in anything.");
+	document.getElementById("textOutput").innerHTML = p;
+	console.log(p);
+}
+
+</script>
+
+
+
+
+<br>
+<button type="button" id="s1" onclick="size1()" name="Size 1" value="Size 1"> Size Experiment 1 </button>
+<script type="text/javascript">
+function size1()
+{
+	document.getElementById("body").style.fontSize = "large";
+	alert(document.getElementById("body").style.fontSize);
+}
+
+</script>
+
+
+
+
+<button type="button" onclick="resizeText(1)" name="Size 2" value="Size 2"> Size Experiment 2 Bigger </button>
+<script type="text/javascript">
+function resizeText(multiplier) {
+	if (document.body.style.fontSize == "") {
+		document.body.style.fontSize = "1.0em";
+    }
+	document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (multiplier * 0.2) + "em";
+}
+</script>
+
+
+<button type="button" onclick="resizeText(1)" name="Size 3" value="Size 3"> Size Experiment 3 +</button>
+<button type="button" onclick="resizeText(-1)" name="Size 4" value="Size 4"> Size Experiment 3 -</button>
+<script type="text/javascript">
+// 1 function for both buttons! (use arguments to the function)
+function resizeText(multiplier) {
+	if (document.body.style.fontSize == "") {
+		document.body.style.fontSize = "1.0em";
+	}
+	document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (multiplier * 0.2) + "em";
+}
+
+</script>
+
+
+<br>
+<button type="button" onclick="hide()" name="toggle 1" value="toggle 1"> Toggle Experiment 1 </button>
+<script type="text/javascript">
+function hide()
+{
+	document.getElementById('green').style.display = "none";
+}
+
+</script>
+
+
+<button type="button" onclick="toggle()" name="toggle 2" value="toggle 2"> Toggle Experiment 2 </button>
+<script type="text/javascript">
+function toggle(id)
+{
+	var x = document.getElementById("green");
+	if(x.style.display == 'block') {
+        x.style.display = 'none';
+    } else {
+        x.style.display = 'block';
+    }
+}
+</script>
+
+
+<button type="button" onclick="toggle()" id="toggle3" name="toggle 3" value="toggle 3"> Toggle Experiment 3 </button>
+<script type="text/javascript">
+function toggle()
+{
+	var x = document.getElementById("green");
+	if(x.style.display == 'block') {
+        x.style.display = 'none';
+		document.getElementById("toggle3").innerHTML="Show";
+		
+    } else {
+        x.style.display = 'block';
+		document.getElementById("toggle3").innerHTML="Hide";
+    }
+}
+</script>
+
+
+
+
+<br>
+<button type="button" onclick="yellow()" name="cycle 1" value="cycle 1"> Cycle Experiment 1 </button>
+<script type="text/javascript">
+function yellow()
+{
+	document.getElementById("green").style.backgroundColor = "yellow";
+}
+</script>
+
+
+<button type="button" onclick="color()" name="cycle 2" value="cycle 2"> Cycle Experiment 2 </button>
+<script type="text/javascript">
+function color()
+{
+	var x = document.getElementById("green");
+	if(x.style.backgroundColor == "green"){
+		x.style.backgroundColor = "yellow";
+	}
+	else {
+		x.style.backgroundColor = "green";
+	}
+}
+</script>
+
+
+<button type="button" onclick="setTimeout(color, 2000), setInterval(color, 2000)"  name="cycle 3" value="cycle 3"> Cycle Experiment 3 </button>
+<script type="text/javascript">
+
+function color()
+{
+	var x = document.getElementById("green");
+	if(x.style.backgroundColor == "green"){
+		x.style.backgroundColor = "yellow";
+	}
+	else {
+		x.style.backgroundColor = "green";
+	}
+}
+</script>
+
+
+
+
+<br>
+<button type="button" onmouseover="blue()" onmouseout="white()" name="hover" value="hover"> Hover Experiment 1</button>
+<script type="text/javascript">
+
+
+function white()
+{
+	document.body.style.backgroundColor = "white";
+}
+function blue()
+{
+	document.body.style.backgroundColor = "blue";
+}
+</script>
+
+
+
+<br>
+<button type="button" onclick="countdown()" name="countdown" value="countdown"> Countdown Experiment 1</button>
+<script type="text/javascript">
+
+var count = 5;
+function countdown()
+{
+	if(count > 0){
+		document.getElementById("textOutput").value = count;
+		count = count - 1;
+		setTimeout(countdown, 1000);
+	}
+	if(count == 0){
+		document.body.style.backgroundColor = "red";
+	}
+}
+</script>
+
+
+<br>
+<textarea id="textOutput" cols="80" rows="4">form text field value</textarea>
+
+<p id="green">
+	Forms do not have to send anything, you can use a form tag simply to shut up the older validators about the form-related html tags. The <b>document</b> object contains an array of <b>form</b> objects, you can either get them by number document.forms[0] or, you can get them by the form's name (name attribute of the form tag) document.formname. In the form object, there is another array called  <b>elements</b> which contains all form-related html tags within that form (form.elements[]). So, you could use a form tag and it's name to read forms.  For example: <samp>document.myForm.myName</samp> could be used if you had a form tag with a name; <strong>however</strong>, this is <strong>NOT</strong> good practice! It is grandfathered in and nobody liked including support for it and all the issues it causes for browsers and developers.  If you need to get a tag, you must get the object by OTHER methods and never by it's form name (aka server name.)
+</p>
+
+
+
+</body>
+</html>

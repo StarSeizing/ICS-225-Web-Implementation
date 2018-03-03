@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Result</title>
+	</head>
+
+<body>
+	<form>
+		<label>Name:</label> <input type="text" id="name1" name="name" size="15" readonly/>
+		<input type="text" id="name2" name="name" size="13" readonly/><br />
+	</form>
+	<script type="text/javascript">	
+		var w = window.location.href;
+		var begin = (w.indexOf("="));
+		var end = (w.indexOf("&"));
+		var first = (document.cookie = w.slice(begin +1,end));
+		var other = (w.slice(begin +1));
+		var begin2 = (other.indexOf("="));
+		var last = (document.cookie = other.slice(begin2 +1));
+		
+		document.getElementById("name1").value = first;	
+		document.getElementById("name2").value = last;
+		
+	</script>
+</body>	
+</html>

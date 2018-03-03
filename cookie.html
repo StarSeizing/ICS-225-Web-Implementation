@@ -1,0 +1,24 @@
+
+<html>
+	<head>
+		<title>cookie</title>
+	</head>
+
+<body>
+	<form action="resultCookie.html" method="get" name="myform">
+		<legend>Personal Information:</legend>
+		<label>Name:</label> <input type="text" id="name1" name="name1" value="First" size="15"/>
+		<input type="text" id="name2" name="name2" value="Last" size="13"/><br />
+		<br/>
+		<button type="submit" onclick="cookie()" value="submit">Submit</button> 
+	</form>
+	
+	<script type="text/javascript">
+		function cookie() {
+		    var first = document.getElementById("name1").value;
+			var last = document.getElementById("name2").value;
+			document.cookie = first + "" + last;
+		}
+	</script>
+</body>	
+</html>
